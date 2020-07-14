@@ -11,95 +11,29 @@
 <body>
     <div class="container">
         <div class="text-center" style="margin-top: 20px;">
-            <form action="" method="">
+            
+                
 
                 <div class="form-group">
-                    <label for="name" class="control-label" style=";">Email</label>
+                    <label for="name" class="control-label" >Email</label>
                     <input type="email" class="form-control" id="InputEmail" placeholder="Enter email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="control-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" id="InputPassword1" placeholder="Password">
                 </div>
-                <button  class="btn btn-primary btn block" id="get-btn">LOGIN</button>
+                <button  class="btn btn-primary btn block" id="get-btn">Show</button>
 
                 <button  class="btn btn-primary btn block" id="post-btn">POST</button>
-            </form>
+
+                
+           
         </div>
     </div>
 
-    <script>
-        const getBtn=document.getElementById('get-btn');
-
-        const postBtn=document.getElementById('post-btn');
-
+    <script src="main.js">
         
-
-        const sendHTTPRequest=( method,url,data) =>{
-            const promise=new Promise((resolve,reject) =>{
-
-            
-
-            const xhr = new XMLHttpRequest();
-            xhr.open(method,url);
-            xhr.responseType='json';
-
-            if(data){
-                xhr.setRequestHeader('content-Type','aplication/json');
-            }
-
-            xhr.onload = () => {
-                // const data =JSON.parse(xhr.response);
-                // console.log(data.data[0].email);
-
-                if(xhr.status >= 400){
-                    reject(xhr.response);
-                }else{
-                resolve(xhr.response);
-                }
-            };
-
-            xhr.onerror = () => {
-                reject('sometging went wrong');
-            };
-
-           
-
-            xhr.send(JSON.stringify(data));
-           
-        });
-        return promise;
-
-        };
-
-        const getData=()=>{
-            sendHTTPRequest('GET','https://reqres.in/api/users').then(responseData =>{
-                console.log(responseData);
-            });
-
-        };
-
-
-        const postData=()=>{
-            sendHTTPRequest('POST','https://reqres.in/api/register',{
-                email:'eve.holt@reqres.in',
-                password:'pistol'
-            }).then(responseData => {
-                console.log(responseData);
-
-
-            }).catch(err => {
-                console.log(err.error)
-
-            });
-
-        };
-
-
-        getBtn.addEventListener('click',getData);
-
-        postBtn.addEventListener('click',postData);
 
 
     </script>
