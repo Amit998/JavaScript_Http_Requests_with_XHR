@@ -47,7 +47,7 @@ return promise;
 
 const getData=()=>{
     sendHTTPRequest('GET','https://reqres.in/api/users').then(responseData =>{
-        console.log(responseData);
+        
         
     });
 
@@ -62,13 +62,13 @@ const postData=()=>{
 
 
     sendHTTPRequest('POST',"https://reqres.in/api/users",{
-        email:userEmail,
-        password:userPasword
+        name:userEmail,
+        job:userPasword
         // id:userEmail,
         // year:userPasword
     }).then(responseData => {
         console.log(responseData);
-        
+        const signalShow=document.getElementById('signal').innerHTML='201 ';
         
 
 
